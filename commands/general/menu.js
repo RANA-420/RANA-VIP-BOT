@@ -28,7 +28,64 @@ module.exports = {
       });
       
       const ownerNames = Array.isArray(config.ownerName) ? config.ownerName : [config.ownerName];
-      const displayOwner = ownerNames[0] || config.ownerName || 'Bot Owner';
+      const displayOwner = ownerNames[0] || config.ownerName || 'Bot Owner';function fancyText(text = "") {
+
+  text = String(text).toLowerCase();
+
+  const first = {
+
+    a:"𝐀",b:"𝐁",c:"𝐂",d:"𝐃",e:"𝐄",f:"𝐅",g:"𝐆",h:"𝐇",
+
+    i:"𝐈",j:"𝐉",k:"𝐊",l:"𝐋",m:"𝐌",n:"𝐍",o:"𝐎",p:"𝐏",
+
+    q:"𝐐",r:"𝐑",s:"𝐒",t:"𝐓",u:"𝐔",v:"𝐕",w:"𝐖",x:"𝐗",
+
+    y:"𝐘",z:"𝐙"
+
+  };
+
+  const rest = {
+
+    a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",f:"ғ",g:"ɢ",h:"ʜ",
+
+    i:"ɪ",j:"ᴊ",k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",p:"ᴘ",
+
+    q:"ǫ",r:"ʀ",s:"ꜱ",t:"ᴛ",u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",
+
+    y:"ʏ",z:"ᴢ"
+
+  };
+
+  return [...text].map((c, i) => {
+
+    if (/[a-z]/.test(c)) {
+
+      return i === 0 ? first[c] : rest[c];
+
+    }
+
+    return c;
+
+  }).join("");
+
+}
+ 
+   
+const now = new Date();
+
+const time = now.toLocaleTimeString('en-GB', {
+
+  hour: '2-digit',
+
+  minute: '2-digit',
+
+  hour12: true
+
+});
+
+const date = now.toLocaleDateString('en-GB');
+
+// Menu Header
       
       let menuText = `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
 ├❥ᰰຼ 👤 *𝐔ꜱᴇʀ:* @${extra.sender.split('@')[0]}
