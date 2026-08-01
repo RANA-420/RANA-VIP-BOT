@@ -30,11 +30,17 @@ module.exports = {
       const ownerNames = Array.isArray(config.ownerName) ? config.ownerName : [config.ownerName];
       const displayOwner = ownerNames[0] || config.ownerName || 'Bot Owner';
       
-      let menuText = `╭━━『 *${config.botName}* 』━━╮\n\n`;
-      menuText += `👋 Hello @${extra.sender.split('@')[0]}!\n\n`;
-      menuText += `⚡ Prefix: ${config.prefix}\n`;
-      menuText += `📦 Total Commands: ${commands.size}\n`;
-      menuText += `👑 Owner: ${displayOwner}\n\n`;
+      let menuText = `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
+├❥ᰰຼ 👤 *𝐔ꜱᴇʀ:* @${extra.sender.split('@')[0]}
+├❥ᰰຼ ➡️ *𝐂ᴏᴍᴍ𝐚ɴᴅꜱ:* ${commands.size}
+├❥ᰰຼ ⚡ *𝐏ʀᴇғɪx:* ${config.prefix}
+├❥ᰰຼ 🤖 *𝐁ᴏᴛ:${config.botName}*
+├❥ᰰຼ 👑 *𝐎ᴡɴᴇʀ: ${displayOwner}*
+├❥ᰰຼ 🛠️ *𝐃ᴇᴠᴇʟᴏᴘᴇʀ: 𝐒ʜꫝʜɪɴ💗*
+├❥ᰰຼ 🐧 *𝐏ʟꫝᴛғᴏʀᴍ:* 𝐋ɪɴᴜx
+╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯
+
+`;
       
       // General Commands
       if (categories.general) {
