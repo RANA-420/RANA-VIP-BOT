@@ -1270,7 +1270,9 @@ const welcomeMsg = `🦢 *⎯͢✧ 𝐇ᴇʏ @${displayName}, ⎯͢✧ আমা
           });
           
           // Create simple goodbye message
-          const goodbyeMsg = `Goodbye @${displayName} 👋 We will never miss you!`;
+const goodbyeMsg = `👋 *ɢσσ∂вує* @${displayName}!
+
+🐸🥲 *পার্টি দেওয়ার ভয়ে পালিয়ে গেলো...!!* 🏃💨`;
           
           // Construct API URL for goodbye image (using leave type)
           const apiUrl = `https://api.some-random-api.com/welcome/img/7/gaming4?type=leave&textcolor=white&username=${encodeURIComponent(displayName)}&guildName=${encodeURIComponent(groupName)}&memberCount=${groupMetadata.participants.length}&avatar=${encodeURIComponent(profilePicUrl)}`;
