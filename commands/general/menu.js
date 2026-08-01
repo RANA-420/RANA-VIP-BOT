@@ -14,6 +14,10 @@ module.exports = {
   
   async execute(sock, msg, args, extra) {
     try {
+      // Owner Only Menu
+if (!extra.isOwner) {
+  return extra.reply("📛 *σɴℓу вσт σωɴєʀ ᴄαɴ υѕє тнιѕ ᴄσммαɴ∂!*");
+}
       const commands = loadCommands();
       const categories = {};
       
