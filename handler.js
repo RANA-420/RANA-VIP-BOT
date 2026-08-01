@@ -1132,7 +1132,19 @@ const handleGroupUpdate = async (sock, update) => {
           });
           
           // Create formatted welcome message
-          const welcomeMsg = `╭╼━≪•𝙽𝙴𝚆 𝙼𝙴𝙼𝙱𝙴𝚁•≫━╾╮\n┃𝚆𝙴𝙻𝙲𝙾𝙼𝙴: @${displayName} 👋\n┃Member count: #${groupMetadata.participants.length}\n┃𝚃𝙸𝙼𝙴: ${timeString}⏰\n╰━━━━━━━━━━━━━━━╯\n\n*@${displayName}* Welcome to *${groupName}*! 🎉\n*Group 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝚃𝙸𝙾𝙽*\n${groupDesc}\n\n> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ${config.botName}*`;
+const welcomeMsg = `🦢 *⎯͢✧ 𝐇ᴇʏ @${displayName}, ⎯͢✧ আমাদের গ্রুপ ${groupName}-এ তোমাকে স্বাগতম..!* ✨
+
+💗 *⎯͢✧ আজ থেকে তুমি আমাদের পরিবারের একজন সদস্য। আশা করি সবার সাথে সুন্দরভাবে মিশে আনন্দের সাথে সময় কাটাবে..!* 🥰
+
+🏠 *⎯͢✧ মোট সদস্য:* ${groupMetadata.participants.length}
+
+🕒 *⎯͢✧ সময়:* ${timeString}
+
+💫 *⎯͢✧ নিয়ম:* *অ্যাক্টিভ থাকো, সবাইকে রেসপেক্ট দাও ও মজা করো..!*
+
+⎯͢✧🤖 *𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫* ⎯͢✧🎀
+
+⎯͢✧🌷 *𝐒ʜᴀʜɪɴ 𝐑ᴀɴꫝᥫ᭡* 💗`;
           
           // Construct API URL for welcome image
           const apiUrl = `https://api.some-random-api.com/welcome/img/7/gaming4?type=join&textcolor=white&username=${encodeURIComponent(displayName)}&guildName=${encodeURIComponent(groupName)}&memberCount=${groupMetadata.participants.length}&avatar=${encodeURIComponent(profilePicUrl)}`;
