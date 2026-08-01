@@ -103,16 +103,20 @@ const date = now.toLocaleDateString('en-GB');
 
 `;
       
-      // General Commands
-      if (categories.general) {
-        menuText += `┏━━━━━━━━━━━━━━━━━\n`;
-        menuText += `┃ 🧭 GENERAL COMMAND\n`;
-        menuText += `┗━━━━━━━━━━━━━━━━━\n`;
-        categories.general.forEach(cmd => {
-          menuText += `│ ➜ ${config.prefix}${cmd.name}\n`;
-        });
-        menuText += `\n`;
-      }
+  // General Commands
+if (categories.general) {
+  menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+  menuText += `├❥ᰰຼ *𝐆ᴇɴᴇʀᴀʟ 𝐂ᴏᴍᴍᴀɴᴅ𝐬*\n`;
+  menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n`;
+
+  menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+
+  categories.general.forEach(cmd => {
+    menuText += `*┋  ➠ ${config.prefix}${fancyText(cmd.name)}*\n`;
+  });
+
+  menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n\n`;
+}
       
       // AI Commands
       if (categories.ai) {
