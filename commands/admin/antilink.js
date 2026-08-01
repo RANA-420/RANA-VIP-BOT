@@ -13,68 +13,111 @@ module.exports = {
   groupOnly: true,
   adminOnly: true,
   botAdminNeeded: true,
-  
+
   async execute(sock, msg, args, extra) {
     try {
+
       if (!args[0]) {
         const settings = database.getGroupSettings(extra.from);
-        const status = settings.antilink ? 'ON' : 'OFF';
-        const action = settings.antilinkAction || 'delete';
-        return extra.reply(
-          `🔗 *Antilink Status*\n\n` +
-          `Status: *${status}*\n` +
-          `Action: *${action}*\n\n` +
-          `Usage:\n` +
-          `  .antilink on\n` +
-          `  .antilink off\n` +
-          `  .antilink set delete | kick\n` +
-          `  .antilink get`
-        );
+        const status = settings.antilink ? '𝐎𝐍' : '𝐎𝐅𝐅';
+        const action = (settings.antilinkAction || 'delete').toUpperCase();
+
+        return extra.reply(`
+⎯͢✧🛠️ 𝐀ɴᴛɪʟɪɴᴋ 𝐒ᴇᴛᴜᴘ 🚫
+
+▢ 𝐒ᴛᴀᴛᴜs : ${status}
+▢ 𝐀ᴄᴛɪᴏɴ : ${action}
+
+▢ .antilink 𝐎ɴ
+▢ .antilink 𝐎ғғ
+▢ .antilink 𝐒ᴇᴛ 𝐃ᴇʟᴇᴛᴇ | 𝐊ɪᴄᴋ
+▢ .antilink 𝐆ᴇᴛ
+`);
       }
-      
+
       const opt = args[0].toLowerCase();
-      
+
       if (opt === 'on') {
         if (database.getGroupSettings(extra.from).antilink) {
-          return extra.reply('*Antilink is already on*');
+          return extra.reply(
+            '⎯͢✧⚠️ 𝐀ɴᴛɪʟɪɴᴋ 𝐀ʟʀᴇᴀᴅʏ 𝐎ɴ ⛔'
+          );
         }
-        database.updateGroupSettings(extra.from, { antilink: true });
-        return extra.reply('*Antilink has been turned ON*');
-      }
-      
-      if (opt === 'off') {
-        database.updateGroupSettings(extra.from, { antilink: false });
-        return extra.reply('*Antilink has been turned OFF*');
-      }
-      
-      if (opt === 'set') {
-        if (args.length < 2) {
-          return extra.reply('*Please specify an action: .antilink set delete | kick*');
-        }
-        
-        const setAction = args[1].toLowerCase();
-        if (!['delete', 'kick'].includes(setAction)) {
-          return extra.reply('*Invalid action. Choose delete or kick.*');
-        }
-        
-        database.updateGroupSettings(extra.from, { 
-          antilinkAction: setAction,
-          antilink: true // Auto-enable when setting action
+
+        database.updateGroupSettings(extra.from, {
+          antilink: true
         });
-        return extra.reply(`*Antilink action set to ${setAction}*`);
+
+        return extra.reply(
+          '⎯͢✧✅ 𝐀ɴᴛɪʟɪɴᴋ 𝐓ᴜʀɴᴇᴅ 𝐎ɴ 🚫'
+        );
       }
-      
+
+      if (opt === 'off') {
+        database.updateGroupSettings(extra.from, {
+          antilink: false
+        });
+
+        return extra.reply(
+          '⎯͢✧❎ 𝐀ɴᴛɪʟɪɴᴋ 𝐓ᴜʀɴᴇᴅ 𝐎ғғ ⚠️'
+        );
+      }
+
+      if (opt === 'set') {
+
+        if (args.length < 2) {
+          return extra.reply(`
+⎯͢✧⚙️ 𝐔sᴀɢᴇ
+
+▢ .antilink set 𝐃ᴇʟᴇᴛᴇ
+▢ .antilink set 𝐊ɪᴄᴋ
+`);
+        }
+
+        const setAction = args[1].toLowerCase();
+
+        if (!['delete', 'kick'].includes(setAction)) {
+          return extra.reply(`
+⎯͢✧❌ 𝐈ɴᴠᴀʟɪᴅ 𝐀ᴄᴛɪᴏɴ ⚠️
+
+▢ 𝐔sᴇ : 𝐃ᴇʟᴇᴛᴇ | 𝐊ɪᴄᴋ
+`);
+        }
+
+        database.updateGroupSettings(extra.from, {
+          antilinkAction: setAction,
+          antilink: true
+        });
+
+        return extra.reply(
+          `⎯͢✧✅ 𝐀ɴᴛɪʟɪɴᴋ 𝐀ᴄᴛɪᴏɴ 𝐒ᴇᴛ 𝐓ᴏ ${setAction.toUpperCase()} ☣️`
+        );
+      }
+
       if (opt === 'get') {
         const settings = database.getGroupSettings(extra.from);
-        const status = settings.antilink ? 'ON' : 'OFF';
-        const action = settings.antilinkAction || 'delete';
-        return extra.reply(`*Antilink Configuration:*\nStatus: ${status}\nAction: ${action}`);
+
+        const status = settings.antilink ? '𝐎𝐍' : '𝐎𝐅𝐅';
+        const action = (settings.antilinkAction || 'delete').toUpperCase();
+
+        return extra.reply(`
+⎯͢✧📊 𝐀ɴᴛɪʟɪɴᴋ 𝐂ᴏɴғɪɢ ⛔
+
+▢ 𝐒ᴛᴀᴛᴜs : ${status}
+▢ 𝐀ᴄᴛɪᴏɴ : ${action}
+`);
       }
-      
-      return extra.reply('*Use .antilink for usage.*');
-      
+
+      return extra.reply(
+        '⎯͢✧ℹ️ 𝐔sᴇ .antilink ☢️'
+      );
+
     } catch (error) {
-      await extra.reply(`❌ Error: ${error.message}`);
+      console.error(error);
+
+      return extra.reply(
+        '⎯͢✧❌ 𝐄ʀʀᴏʀ 🚫'
+      );
     }
   }
 };
