@@ -16,65 +16,113 @@ module.exports = {
 
   async execute(sock, msg, args, extra) {
     try {
+
       if (!args[0]) {
         const settings = database.getGroupSettings(extra.from);
-        const status = settings.antisticker ? 'ON' : 'OFF';
-        const action = settings.antistickerAction || 'delete';
-        return extra.reply(
-          `🖼️ *Antisticker Status*\n\n` +
-          `Status: *${status}*\n` +
-          `Action: *${action}*\n\n` +
-          `Stickers will be deleted when sent.\n\n` +
-          `Usage:\n` +
-          `  .antisticker on\n` +
-          `  .antisticker off\n` +
-          `  .antisticker set delete | kick\n` +
-          `  .antisticker get`
-        );
+        const status = settings.antisticker ? '𝐎𝐍' : '𝐎𝐅𝐅';
+        const action = (settings.antistickerAction || 'delete').toUpperCase();
+
+        return extra.reply(`
+⎯͢✧🖼️ 𝐀ɴᴛɪ𝐒ᴛɪᴄᴋᴇʀ 𝐒ᴇᴛᴜᴘ 🐱
+
+▢ 𝐒ᴛᴀᴛᴜs : ${status}
+▢ 𝐀ᴄᴛɪᴏɴ : ${action}
+
+📌 𝐔𝐒𝐀𝐆𝐄
+
+▢ .antisticker on
+▢ .antisticker off
+▢ .antisticker set delete
+▢ .antisticker set kick
+▢ .antisticker get
+`);
       }
 
       const opt = args[0].toLowerCase();
 
       if (opt === 'on') {
+
         if (database.getGroupSettings(extra.from).antisticker) {
-          return extra.reply('*Antisticker is already on*');
+          return extra.reply(
+`⎯͢✧⚠️ 𝐀ɴᴛɪ𝐒ᴛɪᴄᴋᴇʀ 𝐀ʟʀᴇᴀᴅʏ 𝐎ɴ 🐱`
+          );
         }
-        database.updateGroupSettings(extra.from, { antisticker: true });
-        return extra.reply('*Antisticker has been turned ON* - Stickers will be deleted.');
+
+        database.updateGroupSettings(extra.from, {
+          antisticker: true
+        });
+
+        return extra.reply(
+`⎯͢✧✅ 𝐀ɴᴛɪ𝐒ᴛɪᴄᴋᴇʀ 𝐓ᴜʀɴᴇᴅ 𝐎ɴ 🐱`
+        );
       }
 
       if (opt === 'off') {
-        database.updateGroupSettings(extra.from, { antisticker: false });
-        return extra.reply('*Antisticker has been turned OFF*');
+
+        database.updateGroupSettings(extra.from, {
+          antisticker: false
+        });
+
+        return extra.reply(
+`⎯͢✧❎ 𝐀ɴᴛɪ𝐒ᴛɪᴄᴋᴇʀ 𝐓ᴜʀɴᴇᴅ 𝐎ғғ 🐱`
+        );
       }
 
       if (opt === 'set') {
+
         if (args.length < 2) {
-          return extra.reply('*Please specify an action: .antisticker set delete | kick*');
+          return extra.reply(`
+⎯͢✧⚙️ 𝐔𝐒𝐀𝐆𝐄
+
+▢ .antisticker set delete
+▢ .antisticker set kick
+`);
         }
 
         const setAction = args[1].toLowerCase();
+
         if (!['delete', 'kick'].includes(setAction)) {
-          return extra.reply('*Invalid action. Choose delete or kick.*');
+          return extra.reply(`
+⎯͢✧❌ 𝐈ɴᴠᴀʟɪᴅ 𝐀ᴄᴛɪᴏɴ 🐱
+
+▢ 𝐔𝐒𝐄 : DELETE | KICK
+`);
         }
 
         database.updateGroupSettings(extra.from, {
           antistickerAction: setAction,
           antisticker: true
         });
-        return extra.reply(`*Antisticker action set to ${setAction}*`);
+
+        return extra.reply(
+`⎯͢✧✅ 𝐀ɴᴛɪ𝐒ᴛɪᴄᴋᴇʀ 𝐀ᴄᴛɪᴏɴ 𝐒ᴇᴛ 𝐓ᴏ ${setAction.toUpperCase()} 🐱`
+        );
       }
 
       if (opt === 'get') {
+
         const settings = database.getGroupSettings(extra.from);
-        const status = settings.antisticker ? 'ON' : 'OFF';
-        const action = settings.antistickerAction || 'delete';
-        return extra.reply(`*Antisticker Configuration:*\nStatus: ${status}\nAction: ${action}`);
+        const status = settings.antisticker ? '𝐎𝐍' : '𝐎𝐅𝐅';
+        const action = (settings.antistickerAction || 'delete').toUpperCase();
+
+        return extra.reply(`
+⎯͢✧📊 𝐀ɴᴛɪ𝐒ᴛɪᴄᴋᴇʀ 𝐂ᴏɴғɪɢ 🐱
+
+▢ 𝐒ᴛᴀᴛᴜs : ${status}
+▢ 𝐀ᴄᴛɪᴏɴ : ${action}
+`);
       }
 
-      return extra.reply('*Use .antisticker for usage.*');
+      return extra.reply(
+`⎯͢✧ℹ️ 𝐔𝐒𝐄 .antisticker 🐱`
+      );
+
     } catch (error) {
-      await extra.reply(`❌ Error: ${error.message}`);
+      return extra.reply(
+`⎯͢✧❌ 𝐄ʀʀᴏʀ
+
+${error.message}`
+      );
     }
   }
 };
