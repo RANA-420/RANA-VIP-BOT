@@ -1527,7 +1527,8 @@ const handleAntilink = async (sock, msg, groupMetadata) => {
           await sock.sendMessage(from, { delete: msg.key });
           await sock.groupParticipantsUpdate(from, [sender], 'remove');
           await sock.sendMessage(from, { 
-            text: `🔗 Anti-link triggered. Link removed.`,
+            text: `*...𝐁ᴏᴋꫝᴄʜᴏᴅꫝ, 𝐀ʙʙᴜʀ 𝐆ʀᴏᴜᴘ ꫝ ꫝɪsꫝ 𝐋ɪɴᴋ 𝐂ᴜᴅꫝᴡ...* ☠️🚫  
+*..𝐉ꫝ sꫝʟꫝ, 𝐔sᴛꫝ 𝐊ꫝɪʏꫝ 𝐍ꫝɴɪʀ 𝐊ᴜʟᴇ 𝐆ɪʏꫝ 𝐏ᴏʀ!...* 😈💀.`,
             mentions: [sender]
           }, { quoted: msg });
         } catch (e) {
@@ -1538,7 +1539,8 @@ const handleAntilink = async (sock, msg, groupMetadata) => {
         try {
           await sock.sendMessage(from, { delete: msg.key });
           await sock.sendMessage(from, { 
-            text: `🔗 Anti-link triggered. Link removed.`,
+            text: ` *...𝐁ᴏᴋꫝᴄʜᴏᴅꫝ, 𝐀ʙʙᴜʀ 𝐆ʀᴏᴜᴘ ꫝ ꫝɪsꫝ 𝐋ɪɴᴋ 𝐂ᴜᴅꫝᴡ...* ☠️🚫  
+*..𝐉ꫝ sꫝʟꫝ, 𝐔sᴛꫝ 𝐊ꫝɪʏꫝ 𝐍ꫝɴɪʀ 𝐊ᴜʟᴇ 𝐆ɪʏꫝ 𝐏ᴏʀ!...* 😈💀.`,
             mentions: [sender]
           }, { quoted: msg });
         } catch (e) {
