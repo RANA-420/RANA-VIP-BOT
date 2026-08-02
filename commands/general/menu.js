@@ -293,7 +293,7 @@ menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬
             forwardingScore: 1,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: config.newsletterJid || '120363161513685998@newsletter',
+              newsletterJid: config.newsletterJid || '120363429830985012@newsletter',
               newsletterName: config.botName,
               serverMessageId: -1
             }
