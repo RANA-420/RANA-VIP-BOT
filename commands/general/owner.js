@@ -16,31 +16,53 @@ module.exports = {
         try {
             const chatId = extra.from;
 
-            // Owner numbers array -> convert each to a vCard
-            const ownerNames = Array.isArray(config.ownerName) ? config.ownerName : [config.ownerName];
-            const vCards = config.ownerNumber.map((num, index) => {
+            // Owner names
+            const ownerNames = Array.isArray(config.ownerName)
+                ? config.ownerName
+                : [config.ownerName];
+
+            // Owner numbers
+            const ownerNumbers = Array.isArray(config.ownerNumber)
+                ? config.ownerNumber
+                : [config.ownerNumber];
+
+            // Create vCards
+            const vCards = ownerNumbers.map((num, index) => {
                 const name = ownerNames[index] || ownerNames[0] || 'Bot Owner';
+
                 return {
-                    vcard: `
-BEGIN:VCARD
+                    vcard: `BEGIN:VCARD
 VERSION:3.0
 FN:${name}
-TEL;waid=${num}:${num}
-END:VCARD
-                    `.trim()
+ORG:X-Shahin Bot;
+TITLE:Bot Owner
+TEL;type=CELL;type=VOICE;waid=${num}:${num}
+END:VCARD`
                 };
             });
 
-            const displayName = ownerNames[0] || config.ownerName || 'Bot Owner';
-
+            // Send Contact Card
             await sock.sendMessage(chatId, {
                 contacts: {
-                    displayName: displayName,
+                    displayName: ownerNames[0] || 'Bot Owner',
                     contacts: vCards
                 }
             });
 
-            await extra.reply('👑 Here is the contact of my *Owner*.');
+            // Stylish Owner Info
+            const ownerInfo = `
+╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
+├❥ᰰຼ ❏ 🌸 *ɴᴀᴍᴇ:* 𝐒ʜꫝʜɪɴ 𝐑ꫝɴꫝ
+├❥ᰰຼ ❏ 🏡 *ꜰʀᴏᴍ:* 𝐒ʏʟʜᴇᴛ
+├❥ᰰຼ ❏ 📘 *ᴄʟᴀꜱꜱ:* 𝐈ɴᴛᴇʀ 𝟏sᴛ 𝐘ᴇꫝʀ
+├❥ᰰຼ ❏ 💖 *ʀᴇʟᴀᴛɪᴏɴ:* 𝐌ꫝʀʀɪᴇᴅ ❤️💍
+├❥ᰰຼ ❏ 🎯 *ʜᴏʙʙʏ:* 𝐉ꫝɴɪɴꫝ 😒
+├❥ᰰຼ ❏ ☎️ *ɴᴜᴍʙᴇʀ:* 𝟎𝟏𝟑𝟒𝟕𝟑𝟎𝟎𝟎𝟗𝟓
+├❥ᰰຼ ❏ 🤖 *ʙᴏᴛ:* 𝐗-𝐒ʜꫝʜɪɴ 🌷
+╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯
+            `;
+
+            await extra.reply(ownerInfo);
 
         } catch (error) {
             console.error('Owner command error:', error);
