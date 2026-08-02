@@ -228,16 +228,20 @@ if (categories.economy) {
   }
 }
       
-      // Utility Commands
-      if (categories.utility) {
-        menuText += `┏━━━━━━━━━━━━━━━━━\n`;
-        menuText += `┃ 🔧 UTILITY COMMAND\n`;
-        menuText += `┗━━━━━━━━━━━━━━━━━\n`;
-        categories.utility.forEach(cmd => {
-          menuText += `│ ➜ ${config.prefix}${cmd.name}\n`;
-        });
-        menuText += `\n`;
-      }
+    // Utility Commands
+if (categories.utility) {
+  menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+  menuText += `├❥ᰰຼ *𝐔ᴛɪʟɪᴛʏ 𝐂ᴏᴍᴍᴀɴᴅ𝐬*\n`;
+  menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n`;
+
+  menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+
+  categories.utility.forEach(cmd => {
+    menuText += `*┋  ➠ ${config.prefix}${fancyText(cmd.name)}*\n`;
+  });
+
+  menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n\n`;
+}
 
        // Anime Commands
        if (categories.anime) {
