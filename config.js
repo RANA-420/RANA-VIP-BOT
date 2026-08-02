@@ -9,7 +9,7 @@ module.exports = {
     
     // Bot Configuration
     botName: '𝐗-𝐒ʜꫝʜɪɴ-𝐁ᴏᴛ',
-    prefix: ',',
+    prefix: '.',
     sessionName: 'session',
     sessionID: process.env.SESSION_ID || '',
     newsletterJid: '120363429830985012@newsletter', // Newsletter JID for menu forwarding
@@ -67,18 +67,26 @@ module.exports = {
       remove_bg: ''
     },
     
-    // Message Configuration
-    messages: {
-      wait: '⏳ Please wait...',
-      success: '✅ Success!',
-      error: '❌ Error occurred!',
-      ownerOnly: '👑 This command is only for bot owner!',
-      adminOnly: '🛡️ This command is only for group admins!',
-      groupOnly: '👥 This command can only be used in groups!',
-      privateOnly: '💬 This command can only be used in private chat!',
-      botAdminNeeded: '🤖 Bot needs to be admin to execute this command!',
-      invalidCommand: '❓ Invalid command! Type .menu for help'
-    },
+    /// Message Configuration
+messages: {
+  wait: '⏳ *ρℓєαѕє ωαιт...*',
+
+  success: '✅ *¢σммαη∂ єχє¢υтє∂ ѕυ¢¢єѕѕƒυℓℓу!*',
+
+  error: '❌ *єяяσя σ¢¢υяяє∂!*',
+
+  ownerOnly: '👑 *σɴℓу вσт σωɴєʀ ᴄαɴ υѕє тнιѕ ᴄσммαɴ∂!*',
+
+  adminOnly: '🛡️ *σɴℓу ɢʀσυρ α∂мιηѕ ᴄαɴ υѕє тнιѕ ᴄσммαɴ∂!*',
+
+  groupOnly: '👥 *тнιѕ ᴄσммαɴ∂ ᴄαɴ σηℓу вє υѕє∂ ιη ɢʀσυρѕ!*',
+
+  privateOnly: '💬 *тнιѕ ᴄσммαɴ∂ ᴄαɴ σηℓу вє υѕє∂ ιη ρʀιναтє ᴄнαт!*',
+
+  botAdminNeeded: '🤖 *вσт мυѕт вє αη α∂мιη тσ υѕє тнιѕ ᴄσммαɴ∂!*',
+
+  invalidCommand: '❓ *ιηναℓι∂ ᴄσммαɴ∂! турє .мєηυ ƒσʀ нєℓρ.*'
+},
     
     // Timezone
     timezone: 'Asia/Kolkata',
