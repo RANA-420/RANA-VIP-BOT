@@ -178,15 +178,19 @@ if (categories.owner) {
 }
       
       // Media Commands
-      if (categories.media) {
-        menuText += `┏━━━━━━━━━━━━━━━━━\n`;
-        menuText += `┃ 🎞️ MEDIA COMMAND\n`;
-        menuText += `┗━━━━━━━━━━━━━━━━━\n`;
-        categories.media.forEach(cmd => {
-          menuText += `│ ➜ ${config.prefix}${cmd.name}\n`;
-        });
-        menuText += `\n`;
-      }
+if (categories.media) {
+  menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+  menuText += `├❥ᰰຼ *𝐌ᴇᴅɪᴀ 𝐂ᴏᴍᴍᴀɴᴅ𝐬*\n`;
+  menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n`;
+
+  menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+
+  categories.media.forEach(cmd => {
+    menuText += `*┋  ➠ ${config.prefix}${fancyText(cmd.name)}*\n`;
+  });
+
+  menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n\n`;
+}
       
       // Fun Commands
       if (categories.fun) {
