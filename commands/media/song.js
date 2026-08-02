@@ -50,10 +50,20 @@ module.exports = {
       }
       
       // Inform user
-      await sock.sendMessage(chatId, {
-        image: { url: video.thumbnail },
-        caption: `🎵 Downloading: *${video.title}*\n⏱ Duration: ${video.timestamp}`
-      }, { quoted: msg });
+await sock.sendMessage(
+  chatId,
+  {
+    image: { url: video.thumbnail },
+    caption: `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
+├❥ᰰຼ ➠ 🎵 *𝐃ᴏᴡɴʟᴏᴀᴅɪɴɢ 𝐁ʏ 𝐒ʜꫝʜɪɴ 𝐑ꫝɴꫝ* 
+├❥ᰰຼ ➠ 📌 *𝐓ɪᴛʟᴇ:* ${video.title}
+├❥ᰰຼ ➠ ⏱ *𝐃ᴜʀᴀᴛɪᴏɴ:* ${video.timestamp}
+╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯`
+  },
+  {
+    quoted: msg
+  }
+);
       
       // Try multiple APIs with fallback chain
       let audioData;
