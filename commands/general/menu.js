@@ -208,20 +208,25 @@ if (categories.fun) {
 }
 
       // Economy Commands
-      if (categories.economy) {
-        const economyCmds = categories.economy.filter(
-          (cmd) => !cmd.ownerOnly || extra.isOwner
-        );
-        if (economyCmds.length) {
-          menuText += `┏━━━━━━━━━━━━━━━━━\n`;
-          menuText += `┃ 💰 ECONOMY COMMAND\n`;
-          menuText += `┗━━━━━━━━━━━━━━━━━\n`;
-          economyCmds.forEach(cmd => {
-            menuText += `│ ➜ ${config.prefix}${cmd.name}\n`;
-          });
-          menuText += `\n`;
-        }
-      }
+if (categories.economy) {
+  const economyCmds = categories.economy.filter(
+    (cmd) => !cmd.ownerOnly || extra.isOwner
+  );
+
+  if (economyCmds.length) {
+    menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+    menuText += `├❥ᰰຼ *𝐄ᴄᴏɴᴏᴍʏ 𝐂ᴏᴍᴍᴀɴᴅ𝐬*\n`;
+    menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n`;
+
+    menuText += `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮\n`;
+
+    economyCmds.forEach(cmd => {
+      menuText += `*┋  ➠ ${config.prefix}${fancyText(cmd.name)}*\n`;
+    });
+
+    menuText += `╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯\n\n`;
+  }
+}
       
       // Utility Commands
       if (categories.utility) {
