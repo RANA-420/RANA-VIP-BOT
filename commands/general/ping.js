@@ -1,5 +1,5 @@
 /**
- * Ping Command - Check bot response time
+ * Ping Command
  */
 
 module.exports = {
@@ -8,23 +8,39 @@ module.exports = {
     category: 'general',
     description: 'Check bot response time',
     usage: '.ping',
-    
-    async execute(sock, msg, args, extra) {
-      try {
-        const start = Date.now();
-        const sent = await extra.reply('🏓 Pinging...');
-        const end = Date.now();
-        
-        const responseTime = end - start;
-        
-        await sock.sendMessage(extra.from, {
-          text: `🏓 *Pong!*\n⚡ Response Time: ${responseTime}ms`,
-          edit: sent.key
-        });
-        
-      } catch (error) {
-        await extra.reply(`❌ Error: ${error.message}`);
-      }
+
+    async execute(sock, msg) {
+        try {
+            const start = Date.now();
+
+            const IMAGE_URL = "https://i.ibb.co.com/d4NJDwnt/file-00000000ab8c820b998b678c009cac77.png";
+
+            const ping = Date.now() - start;
+
+            const text = `╭─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╮
+├❥ᰰຼ ❏ *𝐏๏፝֟ƞ̽ɢ ${ping} 𝐌ꜱ°🥹🎀*
+├❥ᰰຼ ❏ *ꜱᴛᴀᴛᴜꜱ: 𝐎ɴʟɪɴᴇ*
+╰─ׅ─ׅ┈ ─๋︩︪─☪︎︎︎̸⃘̸࣭ٜ࣪࣪࣪۬◌⃘۪֟፝֯۫۫︎⃪𐇽۫۬💗⃘⃪۪֟፝֯۫۫۫۬◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪─╯
+
+*⎯͢✧🌷 𝐗-𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡*`;
+
+            await sock.sendMessage(
+                msg.key.remoteJid,
+                {
+                    image: { url: IMAGE_URL },
+                    caption: text
+                },
+                {
+                    quoted: msg
+                }
+            );
+
+        } catch (err) {
+            await sock.sendMessage(msg.key.remoteJid, {
+                text: `❌ Error: ${err.message}`
+            }, {
+                quoted: msg
+            });
+        }
     }
-  };
-  
+};
