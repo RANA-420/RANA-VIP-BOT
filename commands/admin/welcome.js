@@ -18,46 +18,43 @@ module.exports = {
     try {
       const groupId = msg.key.remoteJid;
       const action = args[0]?.toLowerCase();
-      const prefix = '.';
 
       if (!action || !['on', 'off'].includes(action)) {
         const groupSettings = db.getGroupSettings(groupId);
-        const status = groupSettings.welcome ? '𝐎𝐍 ✅' : '𝐎𝐅𝐅 ❌';
+        const status = groupSettings.welcome
+          ? '✅ 𝐄ɴꫝʙʟᴇᴅ'
+          : '❌ 𝐃ɪsꫝʙʟᴇᴅ';
 
         return await sock.sendMessage(groupId, {
-          text: `
-⎯͢✧👋 𝐖ᴇʟᴄᴏᴍᴇ 𝐒ᴇᴛᴜᴘ 🐱
+          text: `👋 𝐖ᴇʟᴄᴏᴍᴇ
 
-▢ 𝐒ᴛᴀᴛᴜs : ${status}
-▢ 𝐌ᴇssᴀɢᴇ :
-${groupSettings.welcomeMessage}
+𝐒ᴛꫝᴛᴜs : ${status}
+𝐌ᴇssꫝɢᴇ : ${groupSettings.welcomeMessage}
 
-━━━━━━━━━━━━━━━
-▢ ${prefix}welcome 𝐎ɴ
-▢ ${prefix}welcome 𝐎ғғ
-▢ ${prefix}setwelcome <𝐌ᴇssᴀɢᴇ>
-`
+━━━━━━━━━━━━━━
+𝐔sꫝɢᴇ : .welcome on/off
+𝐒ᴇᴛ : .setwelcome <message>`
         }, { quoted: msg });
       }
 
       const enable = action === 'on';
-
-      db.updateGroupSettings(groupId, {
-        welcome: enable
-      });
+      db.updateGroupSettings(groupId, { welcome: enable });
 
       await sock.sendMessage(groupId, {
-  text: enable
-    ? `*⎯͢✧✅ওয়েলকাম মেসেজ 𝐎𝐍_করা হয়েছে.. এখন থেকে নতুন মেম্বার যোগ দিলে ওয়েলকাম জানাবে..!!🎀🌷🩷*`
-    : `*⎯͢✧❎ওয়েলকাম মেসেজ 𝐎𝐅𝐅_করা হয়েছে.. এখন থেকে নতুন মেম্বার যোগ দিলে ওয়েলকাম জানাবে না..!!🥀💔*`
-}, { quoted: msg });
-          ? `⎯͢
+        text: enable
+          ? `✅ 𝐖ᴇʟᴄᴏᴍᴇ 𝐌ᴇssꫝɢᴇs 𝐄ɴꫝʙʟᴇᴅ!
+
+👋 𝐍ᴇᴡ ᴍᴇᴍʙᴇʀs ᴡɪʟʟ ɴᴏᴡ ʀᴇᴄᴇɪᴠᴇ ᴡᴇʟᴄᴏᴍᴇ 𝐌ᴇssꫝɢᴇs.`
+          : `❌ 𝐖ᴇʟᴄᴏᴍᴇ 𝐌ᴇssꫝɢᴇs 𝐃ɪsꫝʙʟᴇᴅ!`
+      }, { quoted: msg });
 
     } catch (error) {
       console.error('Welcome Error:', error);
 
       await sock.sendMessage(msg.key.remoteJid, {
-        text: '⎯͢✧❌ 𝐄ʀʀᴏʀ 🐱'
+        text: `❌ 𝐄ʀʀᴏʀ
+
+${error.message}`
       }, { quoted: msg });
     }
   }
